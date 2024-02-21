@@ -6,6 +6,7 @@ class Questions with ChangeNotifier {
     'How much Grains and Baked Goods do you consume?',
     'How much Dairy Products do you consume?',
     'How much Fruits and Vegetables do you consume?',
+    'how',
   ];
 
   final List _waterQuestions = [
@@ -13,13 +14,14 @@ class Questions with ChangeNotifier {
     'For how much hours T.V. was used?',
     'For how much hours Fridge was used?',
     'How many liters of Water is consumed?',
+    'how',
   ];
 
   final List _travelQuestions = [
     'What is the distance travelled by bike?',
     'What is the distance travelled by Car?',
     'What is the distance travelled by Bicycle?',
-    
+    'how',
   ];
 
   List get foodQuestions {

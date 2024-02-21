@@ -77,24 +77,25 @@ class StartScreen extends StatelessWidget {
                 height: 16.0,
               ),
               const CustomCard(
-                'Commute',
-                'assets/images/finalcar.png',
-                'travel',
-              ),
-              const SizedBox(
-                height: 8.0,
-              ),
-              const CustomCard(
-                'Household',
-                'assets/images/finaltv.png',
+                'Manufacture',
+                'assets/images/Manufacture.png',
                 'water',
               ),
               const SizedBox(
                 height: 8.0,
               ),
               const CustomCard(
-                'Food',
-                'assets/images/Cooking-pana.png',
+                'Transport',
+                'assets/images/finalcar.png',
+                'travel',
+              ),
+              const SizedBox(
+                height: 8.0,
+              ),
+              
+              const CustomCard(
+                'Recycle',
+                'assets/images/Recycle.png',
                 'food',
               ),
               const SizedBox(
