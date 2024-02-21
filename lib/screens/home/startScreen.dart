@@ -106,7 +106,7 @@ class StartScreen extends StatelessWidget {
         ),
       ),
     );
-  } //end
+  } 
 }
 
 class CustomCard extends StatelessWidget {
