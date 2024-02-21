@@ -39,7 +39,7 @@ class MyApp extends StatelessWidget {
         //         userEmission: 70,
         //         averageEmission: 50,
         //       ),//HomeScreen.routeName,
-        // dm vd 
+      
         routes: {
           StartScreen.routeName: (context) => StartScreen(),
           UserInputs.routeName: (context) => UserInputs(),
