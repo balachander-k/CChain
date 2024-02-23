@@ -28,6 +28,7 @@ dependencies:
   flutter:
     sdk: flutter
   
+  
   flutter_xlider: ^3.5.0
   google_fonts: ^2.0.0
 

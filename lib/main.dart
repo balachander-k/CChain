@@ -38,7 +38,7 @@ class MyApp extends StatelessWidget {
         //         activityName: "Household",
         //         userEmission: 70,
         //         averageEmission: 50,
-        //       ),//HomeScreen.routeName dfdfgfgf,
+        //       ),//HomeScreen.routeName ,
       
         routes: {
           StartScreen.routeName: (context) => StartScreen(),

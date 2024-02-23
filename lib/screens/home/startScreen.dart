@@ -1,4 +1,3 @@
-
 import 'package:CCHAIN/helpers/colors.dart';
 import 'package:CCHAIN/screens/calculator/user_inputs.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
