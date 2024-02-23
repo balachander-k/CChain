@@ -170,9 +170,9 @@ class ResultScreen extends StatelessWidget {
           title: Text(
             "$activityName carbon footprint",
             style: const TextStyle(
-                fontWeight: FontWeight.w300,
-                fontSize: 16,
-                color: ColorPallete.color7,),
+              fontWeight: FontWeight.w300,
+              fontSize: 16,
+              color: ColorPallete.color7,),
           ),
         ),
         backgroundColor: ColorPallete.background,
@@ -229,14 +229,14 @@ class ResultScreen extends StatelessWidget {
                           // Set a max limit according to the highest value between `userEmission` & `avgEmission`
                           max: values[1] + values[1] / 10,
                           trackBar: FlutterSliderTrackBar(
-                              activeDisabledTrackBarColor: trackBarColor,
-                              inactiveDisabledTrackBarColor:
-                                  ColorPallete.color6,),
+                            activeDisabledTrackBarColor: trackBarColor,
+                            inactiveDisabledTrackBarColor:
+                            ColorPallete.color6,),
                           handler: leftHandler,
                           rightHandler: rightHandler,
                           tooltip: FlutterSliderTooltip(
                             positionOffset:
-                                FlutterSliderTooltipPositionOffset(top: -5),
+                            FlutterSliderTooltipPositionOffset(top: -5),
                             boxStyle: const FlutterSliderTooltipBox(
                               decoration: BoxDecoration(
                                 color: ColorPallete.cardBackground,
@@ -275,7 +275,7 @@ class ResultScreen extends StatelessWidget {
                       child: ListTile(
                         onTap: () {
                           Navigator.pushNamed(
-                              context, ReduceEmissionScreen.routeName,);
+                            context, ReduceEmissionScreen.routeName,);
                         },
                         title: const CoolText(
                           "Reduce carbon emissions",

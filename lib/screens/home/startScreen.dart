@@ -54,7 +54,7 @@ class StartScreen extends StatelessWidget {
                 ),
                 child: TypewriterAnimatedTextKit(
                   speed: const Duration(seconds: 1),
-                  text: const ['Hey there !', 'Make a difference!', 'Start today!'],
+                  text: const ['Greetings!', 'Begin Your Sustainability Journey', 'Start today!'],
                   textStyle: kTextStyle.copyWith(
                     fontFamily: "Orbitron",
                   ),
@@ -66,7 +66,7 @@ class StartScreen extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20.0),
                 child: Text(
-                  'Know your share in world carbon footprint!',
+                  '"Unlock Your Carbon Consciousness!',
                   style: kTextStyle.copyWith(
                     fontSize: 16,
                   ),

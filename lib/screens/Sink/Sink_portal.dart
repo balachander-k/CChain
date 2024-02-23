@@ -10,11 +10,11 @@ class SinkPortal extends StatelessWidget {
     final List reduceCarbonFootPrintmsgs = [
       {
         'icon': Icons.balance,
-        'title': 'Balancing carbon emissions through tree planting',
+        'title': "Balancing carbon emissions through tree planting",
         'options': [
           {
             'icon': Icons.nature,
-            'message': 'Nature is the best remedy for reducing carbon emissions and nurturing our planet\'s health',
+            'message': "Nature is the best remedy for reducing carbon emissions and nurturing our planet\'s health",
           },
           {
             'icon': Icons.next_plan,
@@ -46,19 +46,19 @@ class SinkPortal extends StatelessWidget {
       },
       {
         'icon': Icons.fastfood,
-        'title': 'Reduce emissions due to food activities',
+        'title': 'Ewaste Management Policies',
         'options': [
           {
             'icon': Icons.do_not_disturb_alt,
-            'message': 'Stop wasting food!',
+            'message': "E-waste recycling conserves resources by extracting valuable materials!",
           },
           {
             'icon': Icons.done_outline,
-            'message': 'Eat low on the food chain',
+            'message': "Convenient E-waste collection helps prevent landfill pollution!",
           },
           {
             'icon': Icons.do_not_disturb_alt,
-            'message': "Don't eat excess calories!",
+            'message': "Stringent policies enforce producer accountability in e-waste management!",
           },
         ],
       },
@@ -131,17 +131,33 @@ class SinkPortal extends StatelessWidget {
             if (reduceEmissionData['icon'] == Icons.card_travel) // Only add Home button if the card is for tree options
               SizedBox(
                 width: double.infinity,
-                child: TextButton.icon(
-                  onPressed: () {
-                    Navigator.pushNamed(
-                      context,
-                      StartScreen.routeName,
-                    );
-                  },
-                  icon: Icon(Icons.shopping_cart, color: ColorPallete.color3), // Change the icon color here
-                  label: Text(
-                    'Buy',
-                    style: TextStyle(color: ColorPallete.color3), // Specify the color for the Buy button text here
+                child: Container(
+                  height: 50, // Adjust height for a pleasing appearance
+                  width: double.infinity, // Set the width to match the Home button
+                  child: Center(
+                    child: TextButton.icon(
+                      onPressed: () {
+                        Navigator.pushNamed(
+                          context,
+                          StartScreen.routeName,
+                        );
+                      },
+                      icon: const Icon(Icons.shopping_cart,
+                          color: ColorPallete.color3), // Change the icon color here
+                      label: const Text(
+                        'Buy',
+                        style: TextStyle(color: ColorPallete.color3), // Specify the color for the Buy button text here
+                      ),
+                      style: ButtonStyle(
+                        backgroundColor:
+                        MaterialStateProperty.all<Color>(ColorPallete.cardBackground.withBlue(150)), // Set the background color here
+                        shape: MaterialStateProperty.all<OutlinedBorder>(
+                          RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(30), // Adjust the border radius for a pleasing shape
+                          ),
+                        ),
+                      ),
+                    ),
                   ),
                 ),
               ),

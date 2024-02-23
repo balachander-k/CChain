@@ -230,7 +230,7 @@ class ReduceEmissionScreen extends StatelessWidget {
               onPressed: () {
                 Navigator.pushNamed(
                   context,
-                    SinkPortal.routeName
+                    SinkPortal.routeName,
                 );
               },
               

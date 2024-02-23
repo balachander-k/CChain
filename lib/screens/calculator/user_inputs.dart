@@ -110,7 +110,7 @@ class _UserInputsState extends State<UserInputs> {
                                 child: TextFormField(
                                   controller: _answerController,
                                   decoration: InputDecoration(
-                                    hintText: '(In Grams)',
+                                    hintText: '(In Kg/Kw)',
                                     hintStyle:
                                         const TextStyle(color: ColorPallete.color4),
                                     suffixIcon: IconButton(
@@ -235,7 +235,7 @@ class _UserInputsState extends State<UserInputs> {
                                     child: TextFormField(
                                       controller: _answerController,
                                       decoration: InputDecoration(
-                                        hintText: '(In Km)',
+                                        hintText: '(Km/Lt)',
                                         hintStyle: const TextStyle(
                                             color: ColorPallete.color4,),
                                         //enabledBorder: InputBorder.none,
@@ -361,7 +361,7 @@ class _UserInputsState extends State<UserInputs> {
                                     child: TextFormField(
                                       controller: _answerController,
                                       decoration: InputDecoration(
-                                        hintText: index == 3 ? '' : '(In Hrs)',
+                                        hintText: index == 3 ? '' : '(In Kg/Kw)',
                                         hintStyle: const TextStyle(
                                             color: ColorPallete.color4,),
                                         //enabledBorder: InputBorder.none,

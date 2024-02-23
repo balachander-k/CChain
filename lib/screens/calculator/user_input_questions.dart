@@ -2,26 +2,24 @@ import 'package:flutter/material.dart';
 
 class Questions with ChangeNotifier {
   final List _foodQuestions = [
-    "How much Meat, Fish and Eggs do you consume?",
-    'How much Grains and Baked Goods do you consume?',
-    'How much Dairy Products do you consume?',
-    'How much Fruits and Vegetables do you consume?',
-    'how',
+    "What is the total volume of materials recycled per month?",
+    'What is the total energy consumption during the recycling process?',
+    'What is the proportion of recycled materials diverted from landfill?',
+    'What is the emission factor associated with the recycling process ?',
   ];
 
   final List _waterQuestions = [
-    'For how much hours Fan was used?',
-    'For how much hours T.V. was used?',
-    'For how much hours Fridge was used?',
-    'How many liters of Water is consumed?',
-    'how',
+    'What is the total energy consumption of the manufacturing unit?',
+    'What is the carbon intensity of the energy sources used?',
+    'What is the production output of the manufacturing unit?',
+    'What is the emission factor associated with the production process?',
   ];
 
   final List _travelQuestions = [
-    'What is the distance travelled by bike?',
-    'What is the distance travelled by Car?',
-    'What is the distance travelled by Bicycle?',
-    'how',
+    'What is the distance traveled?',
+    'What is the fuel efficiency of the vehicle?',
+    'What is the emission factor?',
+    'What is the amount of fuel consumed?',
   ];
 
   List get foodQuestions {
