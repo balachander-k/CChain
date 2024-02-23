@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 class SinkPortal extends StatelessWidget {
   static const routeName = "/Sink_portal";
 
-  List<Widget> getWidgetTree() {
+  List<Widget> getWidgetTree(BuildContext context) {
     final List reduceCarbonFootPrintmsgs = [
       {
         'icon': Icons.balance,
@@ -31,16 +31,16 @@ class SinkPortal extends StatelessWidget {
         'title': 'Explore a variety of tree options for purchasing',
         'options': [
           {
-            'image': 'assets/images/tree.png', // Example image path
-            'message': 'Oak trees are known to absorb and store about 48 pounds of carbon dioxide per year',
+            'image': 'assets/images/tree.png',
+            'message': 'Oak trees are known to absorb and store about 48 pounds of CO2 per year',
           },
           {
-            'icon': Icons.done_outline,
-            'message': 'When possible, walk or ride your bike in order to avoid carbon emission completely',
+            'image': 'assets/images/autumn.png',
+            'message': 'Autumn trees can store and absorb about 100 pounds of CO2 per year.',
           },
           {
-            'icon': Icons.do_not_disturb_alt,
-            'message': "Don't buy a minivan or SUV if you don't need 4WD and/or will occasionally need extra space",
+            'image': 'assets/images/pine.png',
+            'message': "Pine trees typically store and absorb around 30 pounds of CO2 per year",
           },
         ],
       },
@@ -108,23 +108,44 @@ class SinkPortal extends StatelessWidget {
       widgetTree = [...widgetTree, ...sectionDivider];
 
       for (final option in reduceEmissionData['options']) {
-        final Widget optionWidget = ListTile(
-          leading: option['image'] != null
-              ? Image.asset(
-            option['image'],
-            width: 60, // Adjust width as needed
-            height: 60, // Adjust height as needed
-          )
-              : Icon(
-            option['icon'],
-            color: ColorPallete.color3,
-          ),
-          title: Text(
-            option['message'],
-            style: const TextStyle(
-              color: ColorPallete.color3,
+        final Widget optionWidget = Column(
+          children: [
+            ListTile(
+              leading: option['image'] != null
+                  ? Image.asset(
+                option['image'],
+                width: 60, // Adjust width as needed
+                height: 60, // Adjust height as needed
+              )
+                  : Icon(
+                option['icon'],
+                color: ColorPallete.color3,
+              ),
+              title: Text(
+                option['message'],
+                style: const TextStyle(
+                  color: ColorPallete.color3,
+                ),
+              ),
             ),
-          ),
+            if (reduceEmissionData['icon'] == Icons.card_travel) // Only add Home button if the card is for tree options
+              SizedBox(
+                width: double.infinity,
+                child: TextButton.icon(
+                  onPressed: () {
+                    Navigator.pushNamed(
+                      context,
+                      StartScreen.routeName,
+                    );
+                  },
+                  icon: Icon(Icons.shopping_cart, color: ColorPallete.color3), // Change the icon color here
+                  label: Text(
+                    'Buy',
+                    style: TextStyle(color: ColorPallete.color3), // Specify the color for the Buy button text here
+                  ),
+                ),
+              ),
+          ],
         );
 
         widgetTree.add(optionWidget);
@@ -170,7 +191,7 @@ class SinkPortal extends StatelessWidget {
             const SizedBox(
               height: 30,
             ),
-            ...getWidgetTree(),
+            ...getWidgetTree(context),
             const SizedBox(
               height: 100,
             ),

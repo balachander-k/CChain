@@ -1,11 +1,9 @@
 import 'package:CCHAIN/helpers/colors.dart';
+import 'package:CCHAIN/screens/Sink/sink_portal.dart';
 import 'package:CCHAIN/screens/calculator/user_input_questions.dart';
 import 'package:CCHAIN/screens/calculator/user_inputs.dart';
 import 'package:CCHAIN/screens/home/startScreen.dart';
-import 'package:CCHAIN/screens/Sink/sink_portal.dart';
 import 'package:CCHAIN/screens/reduce/reduce_screen.dart';
-
-
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

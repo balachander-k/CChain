@@ -179,7 +179,7 @@ class ResultScreen extends StatelessWidget {
         body: SingleChildScrollView(
           child: Column(
             children: [
-              Container(
+              ColoredBox(
                 color: ColorPallete.cardBackground,
                 child: SizedBox(
                   height: MediaQuery.of(context).size.height / 3,
