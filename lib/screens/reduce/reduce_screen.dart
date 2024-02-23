@@ -1,5 +1,6 @@
 import 'package:CCHAIN/helpers/colors.dart';
 import 'package:CCHAIN/helpers/text_theme.dart';
+import 'package:CCHAIN/screens/Sink/Sink_portal.dart';
 import 'package:CCHAIN/screens/home/startScreen.dart';
 import 'package:flutter/material.dart';
 
@@ -229,9 +230,10 @@ class ReduceEmissionScreen extends StatelessWidget {
               onPressed: () {
                 Navigator.pushNamed(
                   context,
-                  StartScreen.routeName,
+                    SinkPortal.routeName
                 );
               },
+              
               label: const Text(
                 "Sink",
                 style: TextStyle(
@@ -239,7 +241,7 @@ class ReduceEmissionScreen extends StatelessWidget {
                 ),
               ),
               icon: const Icon(
-                Icons.energy_savings_leaf,
+                Icons.eco,
                 color: ColorPallete.color3,
               ),
             ),

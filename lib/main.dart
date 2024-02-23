@@ -2,7 +2,10 @@ import 'package:CCHAIN/helpers/colors.dart';
 import 'package:CCHAIN/screens/calculator/user_input_questions.dart';
 import 'package:CCHAIN/screens/calculator/user_inputs.dart';
 import 'package:CCHAIN/screens/home/startScreen.dart';
+import 'package:CCHAIN/screens/Sink/sink_portal.dart';
 import 'package:CCHAIN/screens/reduce/reduce_screen.dart';
+
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -39,11 +42,12 @@ class MyApp extends StatelessWidget {
         //         userEmission: 70,
         //         averageEmission: 50,
         //       ),//HomeScreen.routeName ,
-      
+
         routes: {
           StartScreen.routeName: (context) => StartScreen(),
           UserInputs.routeName: (context) => UserInputs(),
           ReduceEmissionScreen.routeName: (context) => ReduceEmissionScreen(),
+          SinkPortal.routeName: (context) => SinkPortal(),
         },
       ),
     );

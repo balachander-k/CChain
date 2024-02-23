@@ -3,44 +3,44 @@ import 'package:CCHAIN/helpers/text_theme.dart';
 import 'package:CCHAIN/screens/home/startScreen.dart';
 import 'package:flutter/material.dart';
 
-class ReduceEmissionScreen extends StatelessWidget {
-  static const routeName = "/reduce-carbon-footprint";
+class SinkPortal extends StatelessWidget {
+  static const routeName = "/Sink_portal";
 
   List<Widget> getWidgetTree() {
     final List reduceCarbonFootPrintmsgs = [
       {
-        'icon': Icons.hot_tub,
-        'title': 'Reduce emissions due to household activities',
+        'icon': Icons.balance,
+        'title': 'Balancing carbon emissions through tree planting',
         'options': [
           {
-            'icon': Icons.do_not_disturb_alt,
-            'message': 'Do not forget to switch off the lights or unplug your electronic devices when they are not in use',
+            'icon': Icons.nature,
+            'message': 'Nature is the best remedy for reducing carbon emissions and nurturing our planet\'s health',
+          },
+          {
+            'icon': Icons.next_plan,
+            'message': 'Participate in preserving the planet from carbon emissions and climate change',
           },
           {
             'icon': Icons.done_outline,
-            'message': 'Lower the amount of energy used to pump,treat and heat water by washing your car less often, using climate-appropriate plants in garden',
-          },
-          {
-            'icon': Icons.do_not_disturb_alt,
-            'message': "Don't set thermostat too high or low. Install a programmable model to turn off the heat or air conditioning when you're not at home",
+            'message': "Balance the carbon footprint and secure the future by planting trees",
           },
         ],
       },
       {
         'icon': Icons.card_travel,
-        'title': 'Reduce emissions due to your commutes',
+        'title': 'Explore a variety of tree options for purchasing',
         'options': [
           {
-            'icon': Icons.do_not_disturb_alt,
-            'message': 'Do not unnecessarily speed up or accelerate,it increases the mileage upto 33%, waste gas, money and increases carbon emission',
+            'image': 'assets/images/tree.png', // Example image path
+            'message': 'Oak trees are known to absorb and store about 48 pounds of carbon dioxide per year',
           },
           {
             'icon': Icons.done_outline,
-            'message': 'When possible,walk or ride your bike in order to avoid carbon emission completely',
+            'message': 'When possible, walk or ride your bike in order to avoid carbon emission completely',
           },
           {
             'icon': Icons.do_not_disturb_alt,
-            'message': "Don't buy a minivan or SUV if you don't need 4WD and/or will ocassionally need extra space",
+            'message': "Don't buy a minivan or SUV if you don't need 4WD and/or will occasionally need extra space",
           },
         ],
       },
@@ -82,7 +82,8 @@ class ReduceEmissionScreen extends StatelessWidget {
         ),
         title: CoolText(
           reduceEmissionData['title'],
-          fontSize: 17, letterSpacing: 0,
+          fontSize: 17,
+          letterSpacing: 0,
         ),
       );
 
@@ -108,7 +109,13 @@ class ReduceEmissionScreen extends StatelessWidget {
 
       for (final option in reduceEmissionData['options']) {
         final Widget optionWidget = ListTile(
-          leading: Icon(
+          leading: option['image'] != null
+              ? Image.asset(
+            option['image'],
+            width: 60, // Adjust width as needed
+            height: 60, // Adjust height as needed
+          )
+              : Icon(
             option['icon'],
             color: ColorPallete.color3,
           ),
@@ -160,26 +167,6 @@ class ReduceEmissionScreen extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            // Container(
-            //   color: ColorPallete.cardBackground,
-            //   child: SizedBox(
-            //     height: MediaQuery.of(context).size.height / 6,
-            //     width: double.infinity,
-            //     child: Column(
-            //       mainAxisAlignment: MainAxisAlignment.center,
-            //       children: [
-            //         Padding(
-            //           padding: const EdgeInsets.all(10),
-            //           child: CoolText(
-            //             "Reduce your carbon footprint",
-            //             fontSize: 18,
-            //             letterSpacing: 1.1,
-            //           ),
-            //         ),
-            //       ],
-            //     ),
-            //   ),
-            // ),
             const SizedBox(
               height: 30,
             ),
@@ -190,61 +177,28 @@ class ReduceEmissionScreen extends StatelessWidget {
           ],
         ),
       ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.startFloat,
-      floatingActionButton: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-          SizedBox( // Wrapped with SizedBox to limit width
-            width: MediaQuery.of(context).size.width / 4, // Adjust width as needed
-            child: FloatingActionButton.extended(
-              shape: BeveledRectangleBorder(
-                borderRadius: BorderRadius.circular(10),
-              ),
-              backgroundColor: ColorPallete.cardBackground.withBlue(150),
-              onPressed: () {
-                Navigator.pushNamed(
-                  context,
-                  StartScreen.routeName,
-                );
-              },
-              label: const Text(
-                "Home",
-                style: TextStyle(
-                  color: ColorPallete.color3,
-                ),
-              ),
-              icon: const Icon(
-                Icons.home,
-                color: ColorPallete.color3,
-              ),
-            ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      floatingActionButton: FloatingActionButton.extended(
+        shape: BeveledRectangleBorder(
+          borderRadius: BorderRadius.circular(10),
+        ),
+        backgroundColor: ColorPallete.cardBackground.withBlue(150),
+        onPressed: () {
+          Navigator.pushNamed(
+            context,
+            StartScreen.routeName,
+          );
+        },
+        label: const Text(
+          "Home",
+          style: TextStyle(
+            color: ColorPallete.color3,
           ),
-          SizedBox( // Wrapped with SizedBox to limit width
-            width: MediaQuery.of(context).size.width / 4, // Adjust width as needed
-            child: FloatingActionButton.extended(
-              shape: BeveledRectangleBorder(
-                borderRadius: BorderRadius.circular(10),
-              ),
-              backgroundColor: ColorPallete.cardBackground.withBlue(150),
-              onPressed: () {
-                Navigator.pushNamed(
-                  context,
-                  StartScreen.routeName,
-                );
-              },
-              label: const Text(
-                "Sink",
-                style: TextStyle(
-                  color: ColorPallete.color3,
-                ),
-              ),
-              icon: const Icon(
-                Icons.energy_savings_leaf,
-                color: ColorPallete.color3,
-              ),
-            ),
-          ),
-        ],
+        ),
+        icon: const Icon(
+          Icons.home,
+          color: ColorPallete.color3,
+        ),
       ),
     );
   }
