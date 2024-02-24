@@ -1,9 +1,9 @@
-import 'package:flutter/material.dart';
-import 'package:video_player/video_player.dart';
 import 'package:CCHAIN/helpers/colors.dart';
 import 'package:CCHAIN/helpers/text_theme.dart';
 import 'package:CCHAIN/screens/Sink/Sink_portal.dart';
 import 'package:CCHAIN/screens/home/startScreen.dart';
+import 'package:flutter/material.dart';
+import 'package:video_player/video_player.dart';
 
 class ReduceEmissionScreen extends StatelessWidget {
   static const routeName = "/reduce-carbon-footprint";
@@ -13,17 +13,17 @@ class ReduceEmissionScreen extends StatelessWidget {
       {
         'icon': Icons.build_sharp,
         'title': 'Reduce carbon emissions in Manufacturing Unit',
-        'videoPath': 'assets/video/reduce.mp4',
+        'videoPath': 'assets/video/carbon_1.mp4',
       },
       {
         'icon': Icons.car_crash,
         'title': 'Reduce carbon emissions in Transport Unit',
-        'videoPath': 'assets/video/reduce.mp4',
+        'videoPath': 'assets/video/carbon_2.mp4',
       },
       {
         'icon': Icons.recycling,
         'title': 'Reduce emissions due to recycling activities',
-        'videoPath': 'assets/video/reduce.mp4',
+        'videoPath': 'assets/video/carbon_3.mp4',
       },
     ];
 
@@ -206,7 +206,7 @@ class ReduceEmissionScreen extends StatelessWidget {
 class VideoPlayerWidget extends StatefulWidget {
   final String videoPath;
 
-  const VideoPlayerWidget({Key? key, required this.videoPath}) : super(key: key);
+  const VideoPlayerWidget({super.key, required this.videoPath});
 
   @override
   _VideoPlayerWidgetState createState() => _VideoPlayerWidgetState();
@@ -263,10 +263,11 @@ class _VideoPlayerWidgetState extends State<VideoPlayerWidget> {
           bottom: 8.0,
           child: AnimatedOpacity(
             opacity: _isPlaying ? 1.0 : 0.0,
-            duration: Duration(milliseconds: 200),
+            duration: const Duration(milliseconds: 200),
             child: FloatingActionButton(
               onPressed: _togglePlaying,
               mini: true,
+              backgroundColor: ColorPallete.color3,
               child: Icon(_controller.value.isPlaying ? Icons.pause : Icons.play_arrow),
             ),
           ),
