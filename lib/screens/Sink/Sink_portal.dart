@@ -143,7 +143,7 @@ class SinkPortal extends StatelessWidget {
                         );
                       },
                       icon: const Icon(Icons.shopping_cart,
-                          color: ColorPallete.color3), // Change the icon color here
+                          color: ColorPallete.color3,), // Change the icon color here
                       label: const Text(
                         'Buy',
                         style: TextStyle(color: ColorPallete.color3), // Specify the color for the Buy button text here

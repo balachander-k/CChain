@@ -1,7 +1,5 @@
 name: CCHAIN
-description: "A futuristic app which calculates your carbon footprint due to Travel, Food and Household activities. Gives you tips to reduce your carbon footprints."
-
-
+description: "Empower yourself with a futuristic app that calculates your carbon footprint across supply chains, educates on environmental impact, and offers actionable tips to reduce emissions"
 # The following line prevents the package from being accidentally published to
 # pub.dev using `pub publish`. This is preferred for private packages.
 publish_to: "none" # Remove this line if you wish to publish to pub.dev
