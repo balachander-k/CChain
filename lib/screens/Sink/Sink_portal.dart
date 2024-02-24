@@ -14,7 +14,7 @@ class SinkPortal extends StatelessWidget {
         'options': [
           {
             'icon': Icons.nature,
-            'message': "Nature is the best remedy for reducing carbon emissions and nurturing our planet\'s health",
+            'message': "Nature is the best remedy for reducing carbon emissions and nurturing our planet's health",
           },
           {
             'icon': Icons.next_plan,
