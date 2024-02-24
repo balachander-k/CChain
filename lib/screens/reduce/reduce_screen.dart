@@ -1,67 +1,29 @@
+import 'package:flutter/material.dart';
+import 'package:video_player/video_player.dart';
 import 'package:CCHAIN/helpers/colors.dart';
 import 'package:CCHAIN/helpers/text_theme.dart';
 import 'package:CCHAIN/screens/Sink/Sink_portal.dart';
 import 'package:CCHAIN/screens/home/startScreen.dart';
-import 'package:flutter/material.dart';
 
 class ReduceEmissionScreen extends StatelessWidget {
   static const routeName = "/reduce-carbon-footprint";
 
-  List<Widget> getWidgetTree() {
+  List<Widget> getWidgetTree(BuildContext context) {
     final List reduceCarbonFootPrintmsgs = [
       {
-        'icon': Icons.hot_tub,
-        'title': 'Reduce emissions due to household activities',
-        'options': [
-          {
-            'icon': Icons.do_not_disturb_alt,
-            'message': 'Do not forget to switch off the lights or unplug your electronic devices when they are not in use',
-          },
-          {
-            'icon': Icons.done_outline,
-            'message': 'Lower the amount of energy used to pump,treat and heat water by washing your car less often, using climate-appropriate plants in garden',
-          },
-          {
-            'icon': Icons.do_not_disturb_alt,
-            'message': "Don't set thermostat too high or low. Install a programmable model to turn off the heat or air conditioning when you're not at home",
-          },
-        ],
+        'icon': Icons.build_sharp,
+        'title': 'Reduce carbon emissions in Manufacturing Unit',
+        'videoPath': 'assets/video/reduce.mp4',
       },
       {
-        'icon': Icons.card_travel,
-        'title': 'Reduce emissions due to your commutes',
-        'options': [
-          {
-            'icon': Icons.do_not_disturb_alt,
-            'message': 'Do not unnecessarily speed up or accelerate,it increases the mileage upto 33%, waste gas, money and increases carbon emission',
-          },
-          {
-            'icon': Icons.done_outline,
-            'message': 'When possible,walk or ride your bike in order to avoid carbon emission completely',
-          },
-          {
-            'icon': Icons.do_not_disturb_alt,
-            'message': "Don't buy a minivan or SUV if you don't need 4WD and/or will ocassionally need extra space",
-          },
-        ],
+        'icon': Icons.car_crash,
+        'title': 'Reduce carbon emissions in Transport Unit',
+        'videoPath': 'assets/video/reduce.mp4',
       },
       {
-        'icon': Icons.fastfood,
-        'title': 'Reduce emissions due to food activities',
-        'options': [
-          {
-            'icon': Icons.do_not_disturb_alt,
-            'message': 'Stop wasting food!',
-          },
-          {
-            'icon': Icons.done_outline,
-            'message': 'Eat low on the food chain',
-          },
-          {
-            'icon': Icons.do_not_disturb_alt,
-            'message': "Don't eat excess calories!",
-          },
-        ],
+        'icon': Icons.recycling,
+        'title': 'Reduce emissions due to recycling activities',
+        'videoPath': 'assets/video/reduce.mp4',
       },
     ];
 
@@ -83,7 +45,8 @@ class ReduceEmissionScreen extends StatelessWidget {
         ),
         title: CoolText(
           reduceEmissionData['title'],
-          fontSize: 17, letterSpacing: 0,
+          fontSize: 17,
+          letterSpacing: 0,
         ),
       );
 
@@ -107,21 +70,30 @@ class ReduceEmissionScreen extends StatelessWidget {
 
       widgetTree = [...widgetTree, ...sectionDivider];
 
-      for (final option in reduceEmissionData['options']) {
-        final Widget optionWidget = ListTile(
-          leading: Icon(
-            option['icon'],
-            color: ColorPallete.color3,
-          ),
-          title: Text(
-            option['message'],
-            style: const TextStyle(
-              color: ColorPallete.color3,
-            ),
-          ),
+      if (reduceEmissionData.containsKey('videoPath')) {
+        final Widget videoWidget = AspectRatio(
+          aspectRatio: 16 / 9,
+          child: VideoPlayerWidget(videoPath: reduceEmissionData['videoPath']),
         );
 
-        widgetTree.add(optionWidget);
+        widgetTree.add(videoWidget);
+      } else {
+        for (final option in reduceEmissionData['options']) {
+          final Widget optionWidget = ListTile(
+            leading: Icon(
+              option['icon'],
+              color: ColorPallete.color3,
+            ),
+            title: Text(
+              option['message'],
+              style: const TextStyle(
+                color: ColorPallete.color3,
+              ),
+            ),
+          );
+
+          widgetTree.add(optionWidget);
+        }
       }
 
       widgetTree.add(
@@ -161,30 +133,10 @@ class ReduceEmissionScreen extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            // Container(
-            //   color: ColorPallete.cardBackground,
-            //   child: SizedBox(
-            //     height: MediaQuery.of(context).size.height / 6,
-            //     width: double.infinity,
-            //     child: Column(
-            //       mainAxisAlignment: MainAxisAlignment.center,
-            //       children: [
-            //         Padding(
-            //           padding: const EdgeInsets.all(10),
-            //           child: CoolText(
-            //             "Reduce your carbon footprint",
-            //             fontSize: 18,
-            //             letterSpacing: 1.1,
-            //           ),
-            //         ),
-            //       ],
-            //     ),
-            //   ),
-            // ),
             const SizedBox(
               height: 30,
             ),
-            ...getWidgetTree(),
+            ...getWidgetTree(context),
             const SizedBox(
               height: 100,
             ),
@@ -195,8 +147,8 @@ class ReduceEmissionScreen extends StatelessWidget {
       floatingActionButton: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          SizedBox( // Wrapped with SizedBox to limit width
-            width: MediaQuery.of(context).size.width / 4, // Adjust width as needed
+          SizedBox(
+            width: MediaQuery.of(context).size.width / 4,
             child: FloatingActionButton.extended(
               shape: BeveledRectangleBorder(
                 borderRadius: BorderRadius.circular(10),
@@ -220,8 +172,8 @@ class ReduceEmissionScreen extends StatelessWidget {
               ),
             ),
           ),
-          SizedBox( // Wrapped with SizedBox to limit width
-            width: MediaQuery.of(context).size.width / 4, // Adjust width as needed
+          SizedBox(
+            width: MediaQuery.of(context).size.width / 4,
             child: FloatingActionButton.extended(
               shape: BeveledRectangleBorder(
                 borderRadius: BorderRadius.circular(10),
@@ -230,10 +182,9 @@ class ReduceEmissionScreen extends StatelessWidget {
               onPressed: () {
                 Navigator.pushNamed(
                   context,
-                    SinkPortal.routeName,
+                  SinkPortal.routeName,
                 );
               },
-              
               label: const Text(
                 "Sink",
                 style: TextStyle(
@@ -248,6 +199,79 @@ class ReduceEmissionScreen extends StatelessWidget {
           ),
         ],
       ),
+    );
+  }
+}
+
+class VideoPlayerWidget extends StatefulWidget {
+  final String videoPath;
+
+  const VideoPlayerWidget({Key? key, required this.videoPath}) : super(key: key);
+
+  @override
+  _VideoPlayerWidgetState createState() => _VideoPlayerWidgetState();
+}
+
+class _VideoPlayerWidgetState extends State<VideoPlayerWidget> {
+  late VideoPlayerController _controller;
+  late bool _isPlaying;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = VideoPlayerController.asset(widget.videoPath)
+      ..initialize().then((_) {
+        // Ensure the first frame is shown after the video is initialized
+        setState(() {});
+      });
+    _isPlaying = false;
+  }
+
+  @override
+  void dispose() {
+    // Ensure disposing of the VideoPlayerController to free up resources
+    _controller.dispose();
+    super.dispose();
+  }
+
+  void _togglePlaying() {
+    setState(() {
+      if (_controller.value.isPlaying) {
+        _controller.pause();
+      } else {
+        _controller.play();
+      }
+      _isPlaying = _controller.value.isPlaying;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Stack(
+      children: [
+        GestureDetector(
+          onTap: _togglePlaying,
+          child: _controller.value.isInitialized
+              ? AspectRatio(
+            aspectRatio: _controller.value.aspectRatio,
+            child: VideoPlayer(_controller),
+          )
+              : Container(),
+        ),
+        Positioned(
+          left: 8.0,
+          bottom: 8.0,
+          child: AnimatedOpacity(
+            opacity: _isPlaying ? 1.0 : 0.0,
+            duration: Duration(milliseconds: 200),
+            child: FloatingActionButton(
+              onPressed: _togglePlaying,
+              mini: true,
+              child: Icon(_controller.value.isPlaying ? Icons.pause : Icons.play_arrow),
+            ),
+          ),
+        ),
+      ],
     );
   }
 }
