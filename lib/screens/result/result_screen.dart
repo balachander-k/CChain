@@ -16,7 +16,7 @@ class ResultScreen extends StatelessWidget {
       : super(key: key);
 
   Text toolTipLabel = const Text(
-    " tonnes CO2",
+    " kg CO2",
     style: TextStyle(
       fontSize: 30,
       color: ColorPallete.color3,
@@ -42,12 +42,12 @@ class ResultScreen extends StatelessWidget {
     final List<Map> emissionDatas = [
       {
         'text': 'Your carbon footprint for $activityName activities',
-        'figure': '${roundOff(userEmission)} tonnes CO2',
+        'figure': '${roundOff(userEmission)} kg CO2',
         'icon': Icons.person_outline,
       },
       {
         'text': 'Average carbon footprint for $activityName',
-        'figure': '${roundOff(averageEmission)} tonnes CO2',
+        'figure': '${roundOff(averageEmission)} kg CO2',
         'icon': Icons.nature_people,
       },
       {
@@ -188,7 +188,7 @@ class ResultScreen extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       CoolText(
-                        "${roundOff(userEmission)} tonnes CO2",
+                        "${roundOff(userEmission)} kg CO2",
                         fontSize: 22,
                         letterSpacing: 1.1,
                       ),

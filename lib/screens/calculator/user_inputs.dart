@@ -44,7 +44,7 @@ class _UserInputsState extends State<UserInputs> {
       body: SingleChildScrollView(
         child: SizedBox(
           height: size.height,
-          child: args == 'food'
+          child: args == 'Recycle'
               ? Stack(
             children: [
               Container(
@@ -71,7 +71,7 @@ class _UserInputsState extends State<UserInputs> {
                 Padding(
                   padding: const EdgeInsets.all(30.0),
                   child: Image.asset(
-                    'assets/images/eat_1.png',
+                    'assets/images/recycle_2.png',
                   ),
                 ),
               Positioned(
@@ -127,11 +127,10 @@ class _UserInputsState extends State<UserInputs> {
                                     // print(answers);
 
                                     final double footprint = CarbonFootPrint
-                                        .getDailyFoodCarbonFootPrint(
+                                        .getRecycleFootPrint(
                                       answers[0],
                                       answers[1],
-                                      answers[2],
-                                      answers[3],);
+                                      answers[2],);
 
                                     Navigator.pushReplacement(
                                       context,
@@ -256,11 +255,10 @@ class _UserInputsState extends State<UserInputs> {
                                     // print(answers);
 
                                     final double footprint = CarbonFootPrint
-                                        .getDailyTravelFootPrint(
+                                        .getTravelFootPrint(
                                       answers[0],
                                       answers[1],
                                       answers[2],);
-
 
                                     Navigator.pushReplacement(
                                       context,
@@ -271,7 +269,7 @@ class _UserInputsState extends State<UserInputs> {
                                               footprint,
                                               averageEmission:
                                               CarbonFootPrint
-                                                  .avgEmissionDueToTravelPerDay,
+                                                  .avgEmissionDueToManufacture,
                                               activityName:
                                               "Transport Unit", key: UniqueKey(),
                                             ),),);
@@ -382,11 +380,10 @@ class _UserInputsState extends State<UserInputs> {
                                     // print(answers);
 
                                     final double footprint = CarbonFootPrint
-                                        .getDailyHouseHoldCarbonFootPrint(
+                                        .getManufacturingFootPrint(
                                       answers[0],
                                       answers[1],
-                                      answers[2],
-                                      answers[3],);
+                                      answers[2],);
 
                                     Navigator.pushReplacement(
                                       context,
@@ -395,7 +392,7 @@ class _UserInputsState extends State<UserInputs> {
                                             ResultScreen(
                                               userEmission: footprint,
                                               averageEmission: CarbonFootPrint
-                                                  .avgEmissionDueToHouseHoldPerDay,
+                                                  .avgEmissionDueToTravel,
                                               activityName: "Manufacture Unit", key: UniqueKey(),
                                             ),
                                       ),

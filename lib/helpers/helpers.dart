@@ -10,106 +10,84 @@ class CarbonFootPrint {
 
   // Assumming the TV is LED and is 35 inches in size
   // Source: https://www.rtings.com/tv/learn/led-oled-power-consumption-and-electricity-cost
-  static const double kwhUsedByTVPerHour = 0.03;
-
-  // Assuming that power usage of fridge per hour is 250 watt
-  static const double kwhUsedByFridgePerHour = 0.25;
+ 
 
   // Electricity(kWh)
-  static const double emissionPerUnitElectricity = 0.475;
+  static const double emissionPerUnitElectricity = 0.85;
 
   // Water(L)
-  static const double emissionPerUnitWater = 0.001;
+  static const double emissionPerUnitWater = 0.28;
 
   // Petrol(L)
-  static const double emissionPerKmCar = 0.313;
+  static const double emissionPerlitFrieght = 0.1135 ;
 
-  // Diesel(L)
-  static const double emissionPerKmBike = 0.0687;
-
-  static const double emissionPerKmBicycle = 0.016;
-
-  // Meat, Fish, eggs (calories)
-  static const double emissionPerUnitCalorieOfMeat = 219.67;
-
-  // grain & baked food (calories)
-  static const double emissionPerUnitCalorieOfGrain = 15.34;
-
-  // Dairy(calories)
-  static const double emissionPerUnitCalorieOfDairy = 1.9;
-
-  // Fruits & vegetables (calories)
-  static const double emissionPerUnitCalorieOfFruit = 1.55;
+  static const double emissionPerkgRec = 0.59;
 
   // Average
   // TODO: DUMMY DATA, FOR EXPERIMENT
-  static const double avgEmissionDueToHouseHoldPerDay = 10;
-  static const double avgEmissionDueToFoodPerDay = 10;
-  static const double avgEmissionDueToTravelPerDay = 10;
+  static const double avgEmissionDueToTravel = 7.037;
+  static const double avgEmissionDueToFoodPerDay = 8.3;
+  static const double avgEmissionDueToManufacture = 100;
 
-  // Get the daily carbon footprint of your household activities
-  static double getDailyHouseHoldCarbonFootPrint(
-    double hoursFanUsed,
-    double hoursTVUsed,
-    double hoursFridgeUsed,
-    double litresOfWaterUsed,
+  // Get the daily carbon footprint of your Manufacturing activities
+  static double getManufacturingFootPrint(
+    double totalElectricity,
+    double totalwater,
+    double totalfossil,
   ) {
-    final double electrictyComsunptioninKWH = hoursFanUsed * kwhUsedByFanPerHour +
-        hoursTVUsed * kwhUsedByTVPerHour +
-        hoursFridgeUsed * kwhUsedByFridgePerHour;
-
+ 
     final double emissionDueToElectricity =
-        emissionPerUnitElectricity * electrictyComsunptioninKWH;
-    final double emissionDueToWater = emissionPerUnitWater * litresOfWaterUsed;
+        emissionPerUnitElectricity * totalElectricity;
 
-    return emissionDueToElectricity + emissionDueToWater ;
+     final double emissionDueToWater =
+      totalwater * emissionPerUnitWater;
+
+    final double emissionDueToFossils =
+      totalfossil * emissionPerlitFrieght;
+    
+
+    return emissionDueToElectricity + emissionDueToWater + emissionDueToFossils;
   }
 
   // Get the daily footprint of your travel related activities
-  static double getDailyTravelFootPrint(double distanceTravelledByBike,
-      double distanceTravelledByCar, double distanceTravelledByBicycle,) {
-    return emissionPerKmBike * distanceTravelledByBike +
-            emissionPerKmCar * distanceTravelledByCar +
-            emissionPerKmBicycle * distanceTravelledByBicycle;
+  static double getTravelFootPrint(double distanceTravelledByFrieght,
+  double efficiency, double petrolconsume,) {
+    return (distanceTravelledByFrieght/efficiency)*emissionPerlitFrieght;
   }
 
   // Get the daily footprint of your food related activities
-  static double getDailyFoodCarbonFootPrint(
-    double meatCalorieIntake,
-    double grainCalorieIntake,
-    double dairyCalorieIntake,
-    double fruitCalorieIntake,
+  static double getRecycleFootPrint(
+    double volumeOfMaterials,
+    double electricR,
+    double waterR,
+
   ) {
-    return (meatCalorieIntake * emissionPerUnitCalorieOfMeat +
-            grainCalorieIntake * emissionPerUnitCalorieOfGrain +
-            dairyCalorieIntake * emissionPerUnitCalorieOfDairy +
-            fruitCalorieIntake * emissionPerUnitCalorieOfFruit) / 1000;
+    return electricR * emissionPerUnitElectricity + waterR * emissionPerUnitWater + volumeOfMaterials * emissionPerkgRec;
   }
 
   // Get total carbon footprint according to daily activities
   static double getTotalCarbonFootPrint(
     // Household
-    double hoursFanUsed,
-    double hoursTVUsed,
-    double hoursFridgeUsed,
-    double litresOfWaterUsed,
+    double manu1,
+    double manu2,
+    double manu3,
+
 
     // Travel
-    double distanceTravelledByBike,
-    double distanceTravelledByCar,
-    double distanceTravelledByBicycle,
+    double travel1,
+    double travel2,
+    double travel3,
 
     // Food
-    double meatCalorieIntake,
-    double grainCalorieIntake,
-    double dairyCalorieIntake,
-    double fruitCalorieIntake,
+    double recycle1,
+    double recycle2,
+    double recycle3,
   ) {
-    return getDailyHouseHoldCarbonFootPrint(
-            hoursFanUsed, hoursTVUsed, hoursFridgeUsed, litresOfWaterUsed,) +
-        getDailyTravelFootPrint(distanceTravelledByBike, distanceTravelledByCar,
-            distanceTravelledByBicycle,) +
-        getDailyFoodCarbonFootPrint(meatCalorieIntake, grainCalorieIntake,
-            dairyCalorieIntake, fruitCalorieIntake,);
+    return getManufacturingFootPrint(
+            manu1, manu2, manu3,) +
+        getTravelFootPrint(travel1, travel2,
+            travel3,) +
+        getRecycleFootPrint(recycle1,recycle2,
+            recycle3,);
   }
 }
