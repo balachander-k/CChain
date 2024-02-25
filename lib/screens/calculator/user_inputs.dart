@@ -24,20 +24,20 @@ class _UserInputsState extends State<UserInputs> {
     final args = ModalRoute.of(context)!.settings.arguments! as String;
     final size = MediaQuery.of(context).size;
 
-    final List foodQ = Provider.of<Questions>(context).foodQuestions;
+    final List recQ = Provider.of<Questions>(context).recQuestions;
     final List travelQ = Provider.of<Questions>(context).travelQuestions;
-    final List waterQ = Provider.of<Questions>(context).waterQuestions;
+    final List manuQ = Provider.of<Questions>(context).manuQuestions;
 
     List questions = [];
 
     // print(args);
 
-    if (args == 'food') {
-      questions = foodQ;
+    if (args == 'Recycle') {
+      questions = recQ;
     } else if (args == 'travel') {
       questions = travelQ;
     } else {
-      questions = waterQ;
+      questions = manuQ;
     }
 
     return Scaffold(

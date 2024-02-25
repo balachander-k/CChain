@@ -78,7 +78,7 @@ class StartScreen extends StatelessWidget {
               const CustomCard(
                 'Manufacture',
                 'assets/images/Manufacture.png',
-                'water',
+                'Manufacture',
               ),
               const SizedBox(
                 height: 8.0,
@@ -95,7 +95,7 @@ class StartScreen extends StatelessWidget {
               const CustomCard(
                 'Recycle',
                 'assets/images/Recycle.png',
-                'food',
+                'Recycle',
               ),
               const SizedBox(
                 height: 16.0,
