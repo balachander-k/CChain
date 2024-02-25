@@ -140,7 +140,7 @@ class _UserInputsState extends State<UserInputs> {
                                               userEmission: footprint,
                                               averageEmission:
                                               CarbonFootPrint
-                                                  .avgEmissionDueToFoodPerDay,
+                                                  .avgEmissionDueToRecyclePerDay,
                                               activityName: "Recycle Unit",key:UniqueKey(),
                                             ),),);
                                   } else {

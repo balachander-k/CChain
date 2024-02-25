@@ -23,10 +23,9 @@ class CarbonFootPrint {
 
   static const double emissionPerkgRec = 0.59;
 
-  // Average
-  // TODO: DUMMY DATA, FOR EXPERIMENT
-  static const double avgEmissionDueToTravel = 7.037;
-  static const double avgEmissionDueToFoodPerDay = 8.3;
+ 
+  static const double avgEmissionDueToTravel = 128.43;
+  static const double avgEmissionDueToRecyclePerDay = 102.5;
   static const double avgEmissionDueToManufacture = 100;
 
   // Get the daily carbon footprint of your Manufacturing activities
