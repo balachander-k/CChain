@@ -8,4 +8,11 @@ Cchain is a user-friendly application designed with a focus on exceptional UI/UX
 
 We are using the <strong>Intergovernmental Panel On Climate Change (IPCC)</strong> standard to calculate the carbon footprint using Tier 1, Tier 2, and Tier 3 formulas.
 
+<p align="center">
+    <img src="app_logo/Picture1.png" height="30%" width="30%">
+</p>
+
+
+
+
 
