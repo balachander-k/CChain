@@ -17,7 +17,7 @@ We are using the <strong>Intergovernmental Panel On Climate Change (IPCC)</stron
 |   1  | LDV(<3.5T)   |  0.3070  |
 |   2  | MDV(<12T)    |  0.5928  |
 |   3  | HDV(>12T)    |  0.7375  |
-<p align="center">Freight Vehicles Emission Factor</p>
+Freight Vehicles Emission Factor
 
 
 
