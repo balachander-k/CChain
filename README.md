@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="assets/images/C1O2_icon.png">
+    <img src="https://github.com/AvinashIT/CChain/blob/master/app_logo/app_icon.png">
 </p>
 
 # Cchain
